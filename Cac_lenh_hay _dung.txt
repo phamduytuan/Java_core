@@ -1,0 +1,29 @@
+Cach tao = cmd
+
+B1: Tao 1 Project (remote repository) bang lenh clone
+git clone link_project
+VD:git clone https://github.com/phamduytuan/Baitap1.git
+
+B2:Truy cap vao project minh vua clone ve bang lenh: cd ten_project
+VD:
+cd Baitap1
+Hien tai dang o trong project vua tao
+
+B3:kiem tra trang thai bang lenh: git status
+No commits yet
+nothing to commit (create/copy files and use "git add" to track)
+co nghia la chua co gi thay doi trong phien ban hien tai
+
+Kiem tra lai bang lenh git status
+
+git cmd
+  go lenh git log hoac gitk
+  go lenh gitk se hien ra 1 bang thong tin ve commit, tree, va rat nhieu thong tin khac
+
+
+Tiep theo thuc hien thay doi thu 2(commit so 2) bang git cmd
+thuc hien git add duong_dan_file
+sau khi git add thi thay doi da duoc chuyen trang thai sang staged
+
+Buoc tiep theo: day cac commit len remote repository
+git cmd  : su dung lenh git push
