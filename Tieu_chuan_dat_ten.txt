@@ -1,0 +1,22 @@
+Quy ước đặt tên
+1.Quy tắc viết hoa
+-Pascal case: Các chữ cái đầu mỗi từ viết hoa, còn lại viết thường
+-Camel case: tu đầu tiên viết thường, đầu mỗi từ tiếp theo viết hoa, còn lại viết thường
+2.Đặt tên class, interface, abstract class
+-Dùng quy tắc : Pascal case
+-Hạn chế viết tắt, không dùng tiền tố khi đặt tên lớp
+3.Phương thức
+-Dùng quy tắc : Camel case
+-Tên thể hiện chức năng của phương thức, không phân biệt tên các phương thức bằng số
+4.Biến
+-Dùng quy tắc: Camel case
+-Không dùng tiền tố, tên biến gợi nhớ, không đặt tên biến chỉ bằng 1 chữ cái (trừ biến đếm), không nên đặt tên quá ngắn hoặc quá dài
+5.Biến static, enum (biến thuộc về class)
+-Tất cả các từ được viết hoa và phân cách bởi dấu gạch dưới
+6.Biến final
+-Biến final toàn cục: đặt tên biến giống như biến static
+-Biến final cục bộ: đặt tên biến giống như biến thông thường
+7.package
+-Tất cả là chữ thuong
+-Co the dung dau . để ngăn cách ,không dùng dấu gạch dưới
+

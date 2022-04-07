@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package demo_05_04_22;
+package demo_ke_thua_da_hinh_arr;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author DELL
  */
-public class sinhVien {
+public class SinhVien {
 
     int maSV;
     String tenSV;
@@ -19,11 +19,11 @@ public class sinhVien {
     float tong;
     Scanner input = new Scanner(System.in);
 
-    public sinhVien() {
+    public SinhVien() {
 
     }
 
-    public sinhVien(int maSV, String tenSV, int tuoi) {
+    public SinhVien(int maSV, String tenSV, int tuoi) {
         this.maSV = maSV;
         this.tenSV = tenSV;
         this.tuoi = tuoi;

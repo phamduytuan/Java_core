@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package demo_05_04_22;
+package demo_ke_thua_da_hinh_arr;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author DELL
  */
-public class mainTest {
+public class MainTest {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -26,11 +26,11 @@ public class mainTest {
         int n;
         System.out.print("Nhap vao so sinh vien khoi A la: n= ");
         n = input.nextInt();
-        sinhVienKhoiA[] arrA = new sinhVienKhoiA[n];
+        SinhVienKhoiA[] arrA = new SinhVienKhoiA[n];
         int m;
         System.out.print("Nhap vao so sinh vien khoi C la: m= ");
         m = input.nextInt();
-        sinhVienKhoiC[] arrC = new sinhVienKhoiC[m];
+        SinhVienKhoiC[] arrC = new SinhVienKhoiC[m];
         do {
             System.out.print("Ban chon chuc nang: ");
             chon = input.nextInt();
@@ -38,7 +38,7 @@ public class mainTest {
                 case 1:
                     for (int i = 0; i < n; i++) {
                         System.out.println("Nhap thong tin sinh vien khoi A thu " + i);
-                        sinhVienKhoiA sv = new sinhVienKhoiA();
+                        SinhVienKhoiA sv = new SinhVienKhoiA();
                         sv.nhapThongTin();
                         arrA[i] = sv;
                     }
@@ -46,7 +46,7 @@ public class mainTest {
                 case 2:
                     for (int i = 0; i < m; i++) {
                         System.out.println("Nhap thong tin sinh vien khoi C thu " + i);
-                        sinhVienKhoiC sv = new sinhVienKhoiC();
+                        SinhVienKhoiC sv = new SinhVienKhoiC();
                         sv.nhapThongTin();
                         arrC[i] = sv;
                     }
@@ -67,7 +67,6 @@ public class mainTest {
                     }
                     break;
                 case 5:
-                    
                     break;
                 case 6:
                     break;

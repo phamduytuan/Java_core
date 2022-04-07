@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package demo_05_04_22;
+package demo_ke_thua_da_hinh_arr;
 
 /**
  *
  * @author DELL
  */
-public class sinhVienKhoiC extends sinhVien {
+public class SinhVienKhoiC extends SinhVien {
 
     float diemVan;
     float diemSu;
     float diemDia;
 
-    public sinhVienKhoiC() {
+    public SinhVienKhoiC() {
     }
 
-    public sinhVienKhoiC(int maSV, String tenSV, int tuoi, float diemVan, float diemSu, float diemDia) {
+    public SinhVienKhoiC(int maSV, String tenSV, int tuoi, float diemVan, float diemSu, float diemDia) {
         this.maSV = maSV;
         this.tenSV = tenSV;
         this.tuoi = tuoi;
@@ -35,7 +35,7 @@ public class sinhVienKhoiC extends sinhVien {
 
     @Override
     void nhapThongTin() {
-        sinhVien sv = new sinhVien();
+        SinhVien sv = new SinhVien();
         sv.nhapThongTin();
         System.out.print("Nhap diem van: ");
         diemVan = input.nextFloat();
@@ -47,7 +47,7 @@ public class sinhVienKhoiC extends sinhVien {
 
     @Override
     void hienThiThongTin() {
-        sinhVien sv = new sinhVien();
+        SinhVien sv = new SinhVien();
         sv.hienThiThongTin();
         System.out.println("Van: " + diemVan + " Su: " + diemSu + " Dia: " + diemDia);
     }

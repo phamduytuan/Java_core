@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package demo_05_04_22;
+package demo_ke_thua_da_hinh_arr;
 
 /**
  *
  * @author DELL
  */
-public class sinhVienKhoiA extends sinhVien {
+public class SinhVienKhoiA extends SinhVien {
 
     float diemToan;
     float diemLy;
@@ -23,7 +23,7 @@ public class sinhVienKhoiA extends sinhVien {
 
     @Override
     void nhapThongTin() {
-        sinhVien sv = new sinhVien();
+        SinhVien sv = new SinhVien();
         sv.nhapThongTin();
         System.out.print("Nhap diem toan: ");
         diemToan = input.nextFloat();
@@ -35,7 +35,7 @@ public class sinhVienKhoiA extends sinhVien {
 
     @Override
     void hienThiThongTin() {
-        sinhVien sv = new sinhVien();
+        SinhVien sv = new SinhVien();
         sv.hienThiThongTin();
         System.out.println("Toan: " + diemToan + " Ly: " + diemLy + " Hoa: " + diemHoa);
     }
