@@ -5,6 +5,7 @@
  */
 package baitaplon;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -12,21 +13,23 @@ import java.util.Scanner;
  * @author DELL
  */
 public class MainTest {
-
-    public void hienMenuMain() {
-        int menu_0;
+    
+    static void hienMenuMain() {
+        int menu;
         Scanner input = new Scanner(System.in);
         do {
             System.out.println("*****************MENU*************");
             System.out.println("\t1.Quan ly danh muc");
-            System.out.println("\t1.Quan ly san pham");
+            System.out.println("\t2.Quan ly san pham");
             System.out.println("\t3.Thoat");
             System.out.print("Su lua chon cua ban: ");
-            menu_0 = input.nextInt();
-            switch (menu_0) {
+            menu = input.nextInt();
+            switch (menu) {
                 case 1:
+                    hienMenuQuanLyDanhMuc();
                     break;
                 case 2:
+                    hienMenuQuanLySanPham();
                     break;
                 case 3:
                     break;
@@ -34,14 +37,16 @@ public class MainTest {
                     System.out.println("Chi duoc chon tu 1-3. Moi chon lai!");
                     break;
             }
-
-        } while (menu_0 != 3);
-
+            
+        } while (menu != 3);
+        
     }
-
-    public void hienMenuQuanLyDanhMuc() {
-        int menu_1;
+    
+    static void hienMenuQuanLyDanhMuc() {
+        int menu;
         Scanner input = new Scanner(System.in);
+        ArrayList arr = new ArrayList();
+        MenuQuanLyDanhMuc dm = new MenuQuanLyDanhMuc();
         do {
             System.out.println("*****************QUAN LY DANH MUC*************");
             System.out.println("\t1.Danh sach danh muc");
@@ -49,17 +54,20 @@ public class MainTest {
             System.out.println("\t3.Xoa danh muc");
             System.out.println("\t4.Tim kiem danh muc");
             System.out.println("\t5.Quay lai");
-
             System.out.print("Su lua chon cua ban: ");
-            menu_1 = input.nextInt();
-            switch (menu_1) {
+            menu = input.nextInt();
+            switch (menu) {
                 case 1:
+                    dm.danhSachCayDanhMuc(arr);
                     break;
                 case 2:
+                    dm.themDanhMuc(arr);
                     break;
                 case 3:
+                    dm.xoaDanhMucTheoMa(arr);
                     break;
                 case 4:
+                    dm.timKiemDanhMucTheoTen(arr);
                     break;
                 case 5:
                     break;
@@ -67,13 +75,15 @@ public class MainTest {
                     System.out.println("Chi duoc chon tu 1-5. Moi chon lai!");
                     break;
             }
-
-        } while (menu_1 != 5);
+            
+        } while (menu != 5);
     }
-
-    public void hienMenuQuanLySanPham() {
-        int menu_2;
+    
+    static void hienMenuQuanLySanPham() {
+        int menu;
         Scanner input = new Scanner(System.in);
+        ArrayList arr = new ArrayList();
+        MenuQuanLySanPham sp = new MenuQuanLySanPham();
         do {
             System.out.println("*****************QUAN LY SAN PHAM*************");
             System.out.println("\t1.Them san pham moi");
@@ -83,35 +93,40 @@ public class MainTest {
             System.out.println("\t5.Cap nhat thong tin san pham");
             System.out.println("\t6.Cap nhat trang thai san pham");
             System.out.println("\t7.Quay lai");
-
             System.out.print("Su lua chon cua ban: ");
-            menu_2 = input.nextInt();
-            switch (menu_2) {
+            menu = input.nextInt();
+            switch (menu) {
                 case 1:
+                    sp.themSanPhamMoi(arr);
                     break;
                 case 2:
+                    sp.tinhLoiNhuanSanPham(arr);
                     break;
                 case 3:
+                    sp.menuThongTinSanPham(arr);
                     break;
                 case 4:
+                    sp.menuSapXepSanPham(arr);
                     break;
                 case 5:
+                    sp.capNhatThongTinSanPhamTheoMa(arr);
                     break;
                 case 6:
+                    sp.capNhatTrangThaiSanPhamTheoMa(arr);
                     break;
                 case 7:
                     break;
-
                 default:
                     System.out.println("Chi duoc chon tu 1-7. Moi chon lai!");
                     break;
             }
-
-        } while (menu_2 != 7);
+            
+        } while (menu != 7);
     }
-
+    
     public static void main(String[] args) {
-
+        ArrayList arr = new ArrayList();
+        hienMenuMain();
     }
-
+    
 }
