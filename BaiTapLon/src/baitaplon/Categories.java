@@ -81,9 +81,28 @@ public class Categories implements ICategories {
         catalogName = input.nextLine();
         System.out.print("\tNhap vao mo ta danh muc: ");
         descriptions = input.nextLine();
-        System.out.print("\tNhap vao trang thai danh muc: ");
-        catalogStatus = Boolean.parseBoolean(input.nextLine());
-        System.out.print("\tNhap vao mã danh muc cha: ");
+        //tao 1 list cho chon status
+        System.out.println("Chon trang thai danh muc:");
+        int chon;
+        do {
+            System.out.println("\t1.Hoat dong");
+            System.out.println("\t2.Khong hoat dong");
+            System.out.print("Ban chon: ");
+            chon = input.nextInt();
+            switch (chon) {
+                case 1:
+                    catalogStatus = true;
+                    break;
+                case 2:
+                    catalogStatus = false;
+                    break;
+                default:
+                    System.out.println("Chi duoc chon 1-2, moi chon lai!");
+                    break;
+            }
+
+        } while (chon != 1 && chon != 2);
+        System.out.print("\tNhap vao ma danh muc cha: ");
         parentId = input.nextInt();
     }
 
@@ -92,7 +111,7 @@ public class Categories implements ICategories {
         System.out.println("Ma danh muc: " + catalogId);
         System.out.println("Ten danh muc: " + catalogName);
         System.out.println("Mo ta danh muc: " + descriptions);
-        System.out.println("Trang thai danh muc: " + (catalogStatus ? "Active" : "NoneActive"));
+        System.out.println("Trang thai danh muc: " + (catalogStatus ? "Hoat dong" : "Khong hoat dong"));
         System.out.println("Ma danh muc cha: " + parentId);
     }
 

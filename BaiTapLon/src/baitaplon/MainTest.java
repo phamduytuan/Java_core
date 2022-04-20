@@ -14,6 +14,7 @@ import java.util.Scanner;
  */
 public class MainTest {
     
+
     static void hienMenuMain() {
         int menu;
         Scanner input = new Scanner(System.in);
@@ -37,11 +38,11 @@ public class MainTest {
                     System.out.println("Chi duoc chon tu 1-3. Moi chon lai!");
                     break;
             }
-            
+
         } while (menu != 3);
-        
+
     }
-    
+
     static void hienMenuQuanLyDanhMuc() {
         int menu;
         Scanner input = new Scanner(System.in);
@@ -75,14 +76,14 @@ public class MainTest {
                     System.out.println("Chi duoc chon tu 1-5. Moi chon lai!");
                     break;
             }
-            
+
         } while (menu != 5);
     }
     
-    static void hienMenuQuanLySanPham() {
+     static void hienMenuQuanLySanPham() {
         int menu;
         Scanner input = new Scanner(System.in);
-        ArrayList arr = new ArrayList();
+        ArrayList<Product> listProduct = new ArrayList();
         MenuQuanLySanPham sp = new MenuQuanLySanPham();
         do {
             System.out.println("*****************QUAN LY SAN PHAM*************");
@@ -97,22 +98,22 @@ public class MainTest {
             menu = input.nextInt();
             switch (menu) {
                 case 1:
-                    sp.themSanPhamMoi(arr);
+                    MenuQuanLySanPham.themSanPhamMoi(listProduct);
                     break;
                 case 2:
-                    sp.tinhLoiNhuanSanPham(arr);
+                    sp.tinhLoiNhuanSanPham(listProduct);
                     break;
                 case 3:
-                    sp.menuThongTinSanPham(arr);
+                    sp.menuThongTinSanPham(listProduct);
                     break;
                 case 4:
-                    sp.menuSapXepSanPham(arr);
+                    sp.menuSapXepSanPham(listProduct);
                     break;
                 case 5:
-                    sp.capNhatThongTinSanPhamTheoMa(arr);
+                    sp.capNhatThongTinSanPhamTheoMa(listProduct);
                     break;
                 case 6:
-                    sp.capNhatTrangThaiSanPhamTheoMa(arr);
+                    sp.capNhatTrangThaiSanPhamTheoMa(listProduct);
                     break;
                 case 7:
                     break;
@@ -123,10 +124,9 @@ public class MainTest {
             
         } while (menu != 7);
     }
-    
+
     public static void main(String[] args) {
-        ArrayList arr = new ArrayList();
         hienMenuMain();
     }
-    
+
 }

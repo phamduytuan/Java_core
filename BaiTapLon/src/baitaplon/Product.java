@@ -14,13 +14,13 @@ import java.util.Scanner;
 public class Product implements IProduct {
 
     String productId;
-    private String productName;
+    String productName;
     private String title;
     private float importPrice;
     private float exportPrice;
     protected float profit;
     private String descriptions;
-    private boolean productStatus;
+    boolean productStatus;
     Categories catalog;
 
     Scanner input = new Scanner(System.in);
@@ -128,10 +128,29 @@ public class Product implements IProduct {
         input.nextLine();
         System.out.print("\tNhap mo ta san pham: ");
         descriptions = input.nextLine();
-        System.out.print("\tNhap trang thai san pham: ");
-        productStatus = Boolean.parseBoolean(input.nextLine());
-        System.out.print("\tNhap danh muc san pham cua san pham: ");
-        //hoi nhap nhu nao?????????????
+        //cho 1 list roi chon
+        System.out.println("\tChon trang thai san pham: ");
+        int chon;
+        do {
+            System.out.println("\t1.Hoat dong");
+            System.out.println("\t2.Khong hoat dong");
+            System.out.print("Ban chon: ");
+            chon = input.nextInt();
+            switch (chon) {
+                case 1:
+                    productStatus = true;
+                    break;
+                case 2:
+                    productStatus = false;
+                    break;
+                default:
+                    System.out.println("Chi duoc chon 1-2, moi chon lai!");
+                    break;
+            }
+
+        } while (chon != 1 && chon != 2);
+        //System.out.print("\tNhap danh muc san pham cua san pham: ");
+        //???????
     }
 
     @Override
@@ -143,13 +162,13 @@ public class Product implements IProduct {
         System.out.println("\tGia ban san pham: " + exportPrice);
         System.out.println("\tLoi nhuan san pham: " + profit);
         System.out.println("\tMo ta san pham: " + productStatus);
-        System.out.println("\tTrang thai san pham: " + (productStatus ? "Active" : "NoneActive"));
-        System.out.println("\tDanh muc san pham cua san pham: " + catalog);
+        System.out.println("\tTrang thai san pham: " + (productStatus ? "Hoat dong" : "Khong hoat dong"));
+        //System.out.println("\tDanh muc san pham cua san pham: " + catalog);
     }
 
     @Override
     public void calProfit() {
-        profit = exportPrice - importPrice;
+        this.profit = this.exportPrice - this.importPrice;
     }
 
 }

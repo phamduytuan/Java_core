@@ -6,17 +6,14 @@
 package baitaplon;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 /**
  *
  * @author DELL
  */
 public class MenuQuanLyDanhMuc extends Categories {
 
-    public void menuDanhSachDanhMuc(ArrayList arr) {
+    public void menuDanhSachDanhMuc(ArrayList<Categories> listCategories) {
         int menu;
-        Categories cg = new Categories();
         do {
             System.out.println("*****************DANH SACH DANH MUC*************");
             System.out.println("\t1.Danh sach cay danh muc");
@@ -26,10 +23,10 @@ public class MenuQuanLyDanhMuc extends Categories {
             menu = input.nextInt();
             switch (menu) {
                 case 1:
-                    danhSachCayDanhMuc(arr);
+                    danhSachCayDanhMuc(listCategories);
                     break;
                 case 2:
-                    thongTinChiTietDanhMuc(arr);
+                    thongTinChiTietDanhMuc(listCategories);
                     break;
                 case 3:
                     break;
@@ -40,46 +37,45 @@ public class MenuQuanLyDanhMuc extends Categories {
 
         } while (menu != 3);
     }
-
-    public void danhSachCayDanhMuc(ArrayList arr) {
+    
+    public void themDanhMuc(ArrayList<Categories> listCategories) {
+        System.out.println("Nhap danh muc moi:");
         Categories cg = new Categories();
+        cg.inputData();
+        listCategories.add(cg);
     }
 
-    public void thongTinChiTietDanhMuc(ArrayList arr) {
+    public void danhSachCayDanhMuc(ArrayList<Categories> listCategories) {
+        
+    }
+
+    public void thongTinChiTietDanhMuc(ArrayList<Categories> listCategories) {
         String nameSearch;
-        Categories cg = new Categories();
         System.out.print("Nhap vao ten danh muc can xem thong tin: ");
         nameSearch = input.nextLine();
 
     }
 
-    public void themDanhMuc(ArrayList arr) {
-        System.out.println("Nhap danh muc moi:");
-        Categories cg = new Categories();
-        cg.inputData();
-        arr.add(cg);
-    }
-
-    public void xoaDanhMucTheoMa(ArrayList arr) {
-        Categories cg = new Categories();
+    public void xoaDanhMucTheoMa(ArrayList<Categories> listCategories) {
         int maXoa;
         System.out.print("Nhap vao ma danh muc can xoa:");
         maXoa = input.nextInt();
-        Iterator it = arr.iterator();
-        while (it.hasNext()) {
+       // kiem tra neu ko co ma vua nhap thi bat nhap lai 
+        for (int i = 0; i < listCategories.size(); i++) {
+            Categories cg = (Categories)listCategories.get(i);
             if (maXoa == cg.getCatalogId()) {
-                arr.remove(cg);
+                listCategories.remove(cg);
             }
         }
     }
 
-    public void timKiemDanhMucTheoTen(ArrayList arr) {
+    public void timKiemDanhMucTheoTen(ArrayList<Categories> listCategories) {
         String nameSearch;
-        Categories cg = new Categories();
         System.out.print("Nhap vao ten danh muc can xem thong tin: ");
         nameSearch = input.nextLine();
-        Iterator it = arr.iterator();
-        while (it.hasNext()) {
+        // kiem tra neu ko co ma vua nhap thi bat nhap lai 
+        for (int i = 0; i < listCategories.size(); i++) {
+            Categories cg = (Categories)listCategories.get(i);
             if (nameSearch.equals(cg.getCatalogName())) {
                 cg.displayData();
             }
