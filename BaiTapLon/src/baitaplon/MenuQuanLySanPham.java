@@ -63,12 +63,16 @@ public class MenuQuanLySanPham extends Product {
 
     public void hienThiThongTinChiTietSanPhamTheoTen(ArrayList<Product> listProduct) {
         String idSearchName;
-        System.out.print("Nhap vao ma san pham can cap nhat trang thai: ");
-        idSearchName = input.nextLine();
+        input.nextLine();
+        do {
+            System.out.println("Ten san pham gom 6 den 50 ky tu.");
+            System.out.print("\tNhap ten san pham: ");
+            idSearchName = input.nextLine();
+        } while (idSearchName.length() < 6 || idSearchName.length() > 50);
         //kiem tra xem id vua nhap da ton tai trong list chua neu chua bat nhap lai
         for (int i = 0; i < listProduct.size(); i++) {
             Product pd = (Product) listProduct.get(i);
-            if (idSearchName.equals(pd.productName) == true) {
+            if (idSearchName.equals(listProduct.get(i).productName)) {
                 pd.displayData();
             }
         }
@@ -140,13 +144,17 @@ public class MenuQuanLySanPham extends Product {
     }
 
     public void capNhatThongTinSanPhamTheoMa(ArrayList<Product> listProduct) {
+        input.nextLine();
         String idSearchNew;
-        System.out.print("Nhap vao ma san pham can cap nhat trang thai: ");
-        idSearchNew = input.nextLine();
+        do {
+            System.out.println("Ma san pham gom 4 ky tu va bat dau bang ky tu C.");
+            System.out.print("\tNhap vao ma san pham can cap nhat thong tin: ");
+            idSearchNew = input.nextLine();
+        } while (idSearchNew.charAt(0) != 'C' || idSearchNew.length() != 4);
         //kiem tra xem id vua nhap da ton tai trong list chua neu chua bat nhap lai
         for (int i = 0; i < listProduct.size(); i++) {
             Product pd = (Product) listProduct.get(i);
-            if (idSearchNew.equals(pd.productId) == true) {
+            if (idSearchNew.equals(listProduct.get(i).productId)) {
                 System.out.println("Chon thong tin moi cua san pham can cap nhat: ");
                 int chon;
                 do {
@@ -160,44 +168,58 @@ public class MenuQuanLySanPham extends Product {
                     chon = input.nextInt();
                     switch (chon) {
                         case 1:
-                            String tam1;
-                            System.out.print("Nhap ten moi cua san pham: ");
-                            tam1 = input.nextLine();
-                            productName = tam1;
+                            input.nextLine();
+                            do {
+                                System.out.println("Ten san pham gom 6 den 50 ky tu.");
+                                System.out.print("\tNhap ten moi cua san pham: ");
+                                productName = input.nextLine();
+                            } while (productName.length() < 6 || productName.length() > 50);
                             pd.setProductName(productName);
-                            System.out.println("Ten moi cua san pham la: " + pd.getProductName());
+                            System.out.println("Ten moi cua san pham la: " + listProduct.get(i).productName);
                             break;
                         case 2:
-                            String tam2;
-                            System.out.print("Nhap tieu de moi cua san pham: ");
-                            tam2 = input.nextLine();
-                            title = tam2;
+                            do {
+                                System.out.println("Tieu de san pham 6 den 30 ky tu.");
+                                System.out.print("\tNhap tieu de moi cua san pham: ");
+                                title = input.nextLine();
+                            } while (title.length() < 6 || title.length() > 30);
                             pd.setTitle(title);
-                            System.out.println("Tieu de moi cua san pham la: " + pd.getTitle());
+                            System.out.println("Tieu de moi cua san pham la: " + listProduct.get(i).title);
                             break;
                         case 3:
-                            float tam3;
-                            System.out.print("Nhap gia nhap moi cua san pham: ");
-                            tam3 = input.nextFloat();
-                            importPrice = tam3;
+                            do {
+                                try {
+                                    System.out.println("Gia nhap la so thuc lon hon 0");
+                                    System.out.print("\tNhap gia nhap moi san pham: ");
+                                    importPrice = input.nextFloat();
+                                } catch (Exception e) {
+                                    System.out.println("Kiem tra lai gia vua nhap.");
+                                }
+                            } while (importPrice <= 0);
                             pd.setImportPrice(importPrice);
-                            System.out.println("Gia nhap moi cua san pham la: " + pd.getImportPrice());
+                            System.out.println("Gia nhap moi cua san pham la: " + listProduct.get(i).importPrice);
                             break;
                         case 4:
-                            float tam4;
-                            System.out.print("Nhap gia ban moi cua san pham: ");
-                            tam4 = input.nextFloat();
-                            exportPrice = tam4;
+                            do {
+                                try {
+                                    System.out.println("Gia ban la so thuc lon hon gia ban MIN_INTEREST_RATE lan.");
+                                    System.out.print("\tNhap gia ban san pham: ");
+                                    exportPrice = input.nextFloat();
+                                } catch (Exception e) {
+                                    System.out.println("Kiem tra lai gia vua nhap.");
+                                }
+                            } while (exportPrice <= (importPrice * MIN_INTEREST_RATE));
                             pd.setExportPrice(exportPrice);
-                            System.out.println("Gia ban moi cua san pham la: " + pd.getExportPrice());
+                            System.out.println("Gia ban moi cua san pham la: " + listProduct.get(i).exportPrice);
                             break;
                         case 5:
-                            String tam5;
-                            System.out.print("Nhap mo ta moi cua san pham: ");
-                            tam5 = input.nextLine();
-                            descriptions = tam5;
+                            do {
+                                System.out.println("Mo ta danh muc khong duoc de trong khi nhap.");
+                                System.out.print("\tNhap mo ta san pham: ");
+                                descriptions = input.nextLine();
+                            } while (descriptions.length() == 0);
                             pd.setDescriptions(descriptions);
-                            System.out.println("Mo ta moi cua san pham la: " + pd.getDescriptions());
+                            System.out.println("Mo ta moi cua san pham la: " + listProduct.get(i).descriptions);
                             break;
                         case 6:
                             System.out.println("\tChon trang thai moi cua san pham: ");
@@ -221,7 +243,7 @@ public class MenuQuanLySanPham extends Product {
 
                             } while (chon != 1 && chon != 2);
                             pd.setProductStatus(productStatus);
-                            System.out.println("\tTrang thai moi san pham: " + (pd.productStatus ? "Hoat dong" : "Khong hoat dong"));
+                            System.out.println("\tTrang thai moi san pham: " + (listProduct.get(i).productStatus ? "Hoat dong" : "Khong hoat dong"));
                             break;
                         default:
                             System.out.println("Chi duoc chon 1-6, moi chon lai!");
@@ -235,14 +257,19 @@ public class MenuQuanLySanPham extends Product {
     }
 
     public void capNhatTrangThaiSanPhamTheoMa(ArrayList<Product> listProduct) {
-        String idSearchStatus;
-        System.out.print("Nhap vao ma san pham can cap nhat trang thai: ");
-        idSearchStatus = input.nextLine();
+
+        input.nextLine();
+        String idSearchId;
+        do {
+            System.out.println("Ma san pham gom 4 ky tu va bat dau bang ky tu C.");
+            System.out.print("\tNhap vao ma san pham can cap nhat trang thai: ");
+            idSearchId = input.nextLine();
+        } while (idSearchId.charAt(0) != 'C' || idSearchId.length() != 4);
         //kiem tra xem id vua nhap da ton tai trong list chua neu chua bat nhap lai
         for (int i = 0; i < listProduct.size(); i++) {
             Product pd = (Product) listProduct.get(i);
-            if (idSearchStatus.equals(pd.productId) == true) {
-                System.out.println("\tTrang cu thai san pham: " + (pd.productStatus ? "Hoat dong" : "Khong hoat dong"));
+            if (idSearchId.equals(listProduct.get(i).productId)) {
+                System.out.println("\tTrang cu thai san pham: " + (listProduct.get(i).productStatus ? "Hoat dong" : "Khong hoat dong"));
                 //cho 1 list roi chon
                 System.out.println("\tChon trang thai moi cua san pham: ");
                 int chon;
@@ -265,7 +292,7 @@ public class MenuQuanLySanPham extends Product {
 
                 } while (chon != 1 && chon != 2);
                 pd.setProductStatus(productStatus);
-                System.out.println("\tTrang thai moi san pham: " + (pd.productStatus ? "Hoat dong" : "Khong hoat dong"));
+                System.out.println("\tTrang thai moi san pham: " + (listProduct.get(i).productStatus ? "Hoat dong" : "Khong hoat dong"));
             }
         }
         System.out.println("");

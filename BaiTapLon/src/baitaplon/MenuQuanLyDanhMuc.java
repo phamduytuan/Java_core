@@ -57,7 +57,7 @@ public class MenuQuanLyDanhMuc extends Categories {
         nameSearch = input.nextLine();
         for (int i = 0; i < listCategories.size(); i++) {
             Categories cg = (Categories) listCategories.get(i);
-            if (nameSearch.equals(cg.catalogName)) {
+            if (nameSearch.equals(listCategories.get(i).catalogName)) {
                 cg.displayData();
             }
         }
@@ -70,20 +70,21 @@ public class MenuQuanLyDanhMuc extends Categories {
         // kiem tra neu ko co ma vua nhap thi bat nhap lai 
         for (int i = 0; i < listCategories.size(); i++) {
             Categories cg = (Categories) listCategories.get(i);
-            if (maXoa == cg.getCatalogId()) {
+            if (maXoa == listCategories.get(i).catalogId) {
                 listCategories.remove(cg);
             }
         }
     }
 
     public void timKiemDanhMucTheoTen(ArrayList<Categories> listCategories) {
+        input.nextLine();
         String nameSearch;
         System.out.print("Nhap vao ten danh muc can xem thong tin: ");
         nameSearch = input.nextLine();
         // kiem tra neu ko co ma vua nhap thi bat nhap lai 
         for (int i = 0; i < listCategories.size(); i++) {
             Categories cg = (Categories) listCategories.get(i);
-            if (nameSearch.equals(cg.getCatalogName()) == true) {
+            if (nameSearch.equals(listCategories.get(i).catalogName)) {
                 cg.displayData();
             }
         }
