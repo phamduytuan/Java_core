@@ -62,17 +62,17 @@ public class MenuQuanLySanPham extends Product {
     }
 
     public void hienThiThongTinChiTietSanPhamTheoTen(ArrayList<Product> listProduct) {
-      String idSearchName;
+        String idSearchName;
         System.out.print("Nhap vao ma san pham can cap nhat trang thai: ");
         idSearchName = input.nextLine();
         //kiem tra xem id vua nhap da ton tai trong list chua neu chua bat nhap lai
         for (int i = 0; i < listProduct.size(); i++) {
             Product pd = (Product) listProduct.get(i);
             if (idSearchName.equals(pd.productName) == true) {
-               pd.displayData();
+                pd.displayData();
             }
         }
-        System.out.println("");  
+        System.out.println("");
     }
 
     public void menuSapXepSanPham(ArrayList<Product> listProduct) {
