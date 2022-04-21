@@ -46,7 +46,7 @@ public class MainTest {
     static void hienMenuQuanLyDanhMuc() {
         int menu;
         Scanner input = new Scanner(System.in);
-        ArrayList arr = new ArrayList();
+        ArrayList<Categories> listCategories = new ArrayList();
         MenuQuanLyDanhMuc dm = new MenuQuanLyDanhMuc();
         do {
             System.out.println("*****************QUAN LY DANH MUC*************");
@@ -59,16 +59,16 @@ public class MainTest {
             menu = input.nextInt();
             switch (menu) {
                 case 1:
-                    dm.danhSachCayDanhMuc(arr);
+                    dm.menuDanhSachDanhMuc(listCategories);
                     break;
                 case 2:
-                    dm.themDanhMuc(arr);
+                    dm.themDanhMuc(listCategories);
                     break;
                 case 3:
-                    dm.xoaDanhMucTheoMa(arr);
+                    dm.xoaDanhMucTheoMa(listCategories);
                     break;
                 case 4:
-                    dm.timKiemDanhMucTheoTen(arr);
+                    dm.timKiemDanhMucTheoTen(listCategories);
                     break;
                 case 5:
                     break;

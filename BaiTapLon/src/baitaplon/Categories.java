@@ -5,6 +5,7 @@
  */
 package baitaplon;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -13,11 +14,11 @@ import java.util.Scanner;
  */
 public class Categories implements ICategories {
 
-    private int catalogId;
-    private String catalogName;
-    private String descriptions;
-    private boolean catalogStatus;
-    private int parentId;
+    int catalogId;
+    String catalogName;
+    String descriptions;
+    boolean catalogStatus;
+    int parentId;
 
     Scanner input = new Scanner(System.in);
 
@@ -74,13 +75,28 @@ public class Categories implements ICategories {
 
     @Override
     public void inputData() {
-        System.out.print("\tNhap ma danh muc: ");
-        catalogId = input.nextInt();
+        do {
+            try {
+                System.out.println("Ma danh muc la so nguyen lon hon 0.");
+                System.out.print("\tNhap ma danh muc: ");
+                catalogId = input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Kiem tra lai so vua nhap!");
+            } catch (Exception e) {
+                System.out.println("Da co loi xay ra!");
+            }
+        } while (catalogId <= 0);
         input.nextLine();
-        System.out.print("\tNhap ten danh muc: ");
-        catalogName = input.nextLine();
-        System.out.print("\tNhap vao mo ta danh muc: ");
-        descriptions = input.nextLine();
+        do {
+            System.out.println("Ten danh muc gom tu 6 den 30 ky tu.");
+            System.out.print("\tNhap ten danh muc: ");
+            catalogName = input.nextLine();
+        } while (catalogName.length() < 6 || catalogName.length() > 30);
+        do {
+            System.out.println("Mo ta danh muc khong duoc de trong khi nhap.");
+            System.out.print("\tNhap vao mo ta danh muc: ");
+            descriptions = input.nextLine();
+        } while (descriptions.length() == 0);
         //tao 1 list cho chon status
         System.out.println("Chon trang thai danh muc:");
         int chon;
@@ -102,8 +118,18 @@ public class Categories implements ICategories {
             }
 
         } while (chon != 1 && chon != 2);
-        System.out.print("\tNhap vao ma danh muc cha: ");
-        parentId = input.nextInt();
+        do {
+            try {
+                System.out.println("Ma danh muc cha giong nhau la danh muc cung cap ");
+                System.out.println("Ma danh muc cha tu 0 den 3");
+                System.out.print("\tNhap vao ma danh muc cha: ");
+                parentId = input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Kiem tra lai so vua nhap!");
+            } catch (Exception e) {
+                System.out.println("Da co loi xay ra!");
+            }
+        } while (parentId < 0 || parentId > 3);
     }
 
     @Override

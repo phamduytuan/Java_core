@@ -6,6 +6,7 @@
 package baitaplon;
 
 import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -37,7 +38,7 @@ public class MenuQuanLyDanhMuc extends Categories {
 
         } while (menu != 3);
     }
-    
+
     public void themDanhMuc(ArrayList<Categories> listCategories) {
         System.out.println("Nhap danh muc moi:");
         Categories cg = new Categories();
@@ -46,23 +47,29 @@ public class MenuQuanLyDanhMuc extends Categories {
     }
 
     public void danhSachCayDanhMuc(ArrayList<Categories> listCategories) {
-        
+
     }
 
     public void thongTinChiTietDanhMuc(ArrayList<Categories> listCategories) {
+        input.nextLine();
         String nameSearch;
         System.out.print("Nhap vao ten danh muc can xem thong tin: ");
         nameSearch = input.nextLine();
-
+        for (int i = 0; i < listCategories.size(); i++) {
+            Categories cg = (Categories) listCategories.get(i);
+            if (nameSearch.equals(cg.catalogName)) {
+                cg.displayData();
+            }
+        }
     }
 
     public void xoaDanhMucTheoMa(ArrayList<Categories> listCategories) {
         int maXoa;
         System.out.print("Nhap vao ma danh muc can xoa:");
         maXoa = input.nextInt();
-       // kiem tra neu ko co ma vua nhap thi bat nhap lai 
+        // kiem tra neu ko co ma vua nhap thi bat nhap lai 
         for (int i = 0; i < listCategories.size(); i++) {
-            Categories cg = (Categories)listCategories.get(i);
+            Categories cg = (Categories) listCategories.get(i);
             if (maXoa == cg.getCatalogId()) {
                 listCategories.remove(cg);
             }
@@ -75,8 +82,8 @@ public class MenuQuanLyDanhMuc extends Categories {
         nameSearch = input.nextLine();
         // kiem tra neu ko co ma vua nhap thi bat nhap lai 
         for (int i = 0; i < listCategories.size(); i++) {
-            Categories cg = (Categories)listCategories.get(i);
-            if (nameSearch.equals(cg.getCatalogName())) {
+            Categories cg = (Categories) listCategories.get(i);
+            if (nameSearch.equals(cg.getCatalogName()) == true) {
                 cg.displayData();
             }
         }

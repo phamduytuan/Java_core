@@ -15,11 +15,11 @@ public class Product implements IProduct {
 
     String productId;
     String productName;
-    private String title;
-    private float importPrice;
-    private float exportPrice;
-    protected float profit;
-    private String descriptions;
+    String title;
+    float importPrice;
+    float exportPrice;
+    float profit;
+    String descriptions;
     boolean productStatus;
     Categories catalog;
 
@@ -115,19 +115,45 @@ public class Product implements IProduct {
 
     @Override
     public void inputData() {
-        System.out.print("\tNhap ma san pham: ");
-        productId = input.nextLine();
-        System.out.print("\tNhap ten san pham: ");
-        productName = input.nextLine();
-        System.out.print("\tNhap tieu de san pham: ");
-        title = input.nextLine();
-        System.out.print("\tNhap gia nhap san pham: ");
-        importPrice = input.nextFloat();
-        System.out.print("\tNhap gia ban san pham: ");
-        exportPrice = input.nextFloat();
+        do {
+            System.out.println("Ma san pham gom 4 ky tu va bat dau bang ky tu C.");
+            System.out.print("\tNhap ma san pham: ");
+            productId = input.nextLine();
+        } while (productId.charAt(0) != 'C' || productId.length() != 4);
+        do {
+            System.out.println("Ten san pham gom 6 den 50 ky tu.");
+            System.out.print("\tNhap ten san pham: ");
+            productName = input.nextLine();
+        } while (productName.length() < 6 || productName.length() > 50);
+        do {
+            System.out.println("Tieu de san pham 6 den 30 ky tu.");
+            System.out.print("\tNhap tieu de san pham: ");
+            title = input.nextLine();
+        } while (title.length() < 6 || title.length() > 30);
+        do {
+            try {
+                System.out.println("Gia nhap la so thuc lon hon 0");
+                System.out.print("\tNhap gia nhap san pham: ");
+                importPrice = input.nextFloat();
+            } catch (Exception e) {
+                System.out.println("Kiem tra lai gia vua nhap.");
+            }
+        } while (importPrice <= 0);
+        do {
+            try {
+                System.out.println("Gia ban la so thuc lon hon gia ban MIN_INTEREST_RATE lan.");
+                System.out.print("\tNhap gia ban san pham: ");
+                exportPrice = input.nextFloat();
+            } catch (Exception e) {
+                System.out.println("Kiem tra lai gia vua nhap.");
+            }
+        } while (exportPrice <= (importPrice * MIN_INTEREST_RATE));
         input.nextLine();
-        System.out.print("\tNhap mo ta san pham: ");
-        descriptions = input.nextLine();
+        do {
+            System.out.println("Mo ta danh muc khong duoc de trong khi nhap.");
+            System.out.print("\tNhap mo ta san pham: ");
+            descriptions = input.nextLine();
+        } while (descriptions.length() == 0);
         //cho 1 list roi chon
         System.out.println("\tChon trang thai san pham: ");
         int chon;
@@ -147,7 +173,6 @@ public class Product implements IProduct {
                     System.out.println("Chi duoc chon 1-2, moi chon lai!");
                     break;
             }
-
         } while (chon != 1 && chon != 2);
         //System.out.print("\tNhap danh muc san pham cua san pham: ");
         //???????
