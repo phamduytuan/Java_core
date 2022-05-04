@@ -13,7 +13,6 @@ import java.util.Scanner;
  * @author DELL
  */
 public class MainTest {
-    
 
     static void hienMenuMain() {
         int menu;
@@ -79,8 +78,8 @@ public class MainTest {
 
         } while (menu != 5);
     }
-    
-     static void hienMenuQuanLySanPham() {
+
+    static void hienMenuQuanLySanPham() {
         int menu;
         Scanner input = new Scanner(System.in);
         ArrayList<Product> listProduct = new ArrayList();
@@ -121,12 +120,11 @@ public class MainTest {
                     System.out.println("Chi duoc chon tu 1-7. Moi chon lai!");
                     break;
             }
-            
+
         } while (menu != 7);
     }
 
     public static void main(String[] args) {
         hienMenuMain();
     }
-
 }

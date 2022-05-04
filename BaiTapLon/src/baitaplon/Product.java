@@ -5,13 +5,14 @@
  */
 package baitaplon;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author DELL
  */
-public class Product implements IProduct {
+public class Product implements IProduct, Serializable {
 
     String productId;
     String productName;

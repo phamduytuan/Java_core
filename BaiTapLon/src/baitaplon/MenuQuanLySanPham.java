@@ -12,14 +12,15 @@ import java.util.ArrayList;
  * @author DELL
  */
 public class MenuQuanLySanPham extends Product {
-
+    
     public static void themSanPhamMoi(ArrayList<Product> listProduct) {
         System.out.println("Nhap san pham moi: ");
         Product pd = new Product();
         pd.inputData();
         listProduct.add(pd);
+        //ShopManagement.writeProduct(listProduct);
     }
-
+    
     public void tinhLoiNhuanSanPham(ArrayList<Product> listProduct) {
         for (int i = 0; i < listProduct.size(); i++) {
             Product pd = (Product) listProduct.get(i);
@@ -30,7 +31,7 @@ public class MenuQuanLySanPham extends Product {
             System.out.println("\t " + listProduct.get(i).getProductName() + " : " + listProduct.get(i).profit);
         }
     }
-
+    
     public void menuThongTinSanPham(ArrayList<Product> listProduct) {
         int menu;
         do {
@@ -53,14 +54,14 @@ public class MenuQuanLySanPham extends Product {
                     System.out.println("Chi duoc chon tu 1-3. Moi chon lai!");
                     break;
             }
-
+            
         } while (menu != 3);
     }
-
+    
     public void hienThiThongTinSanPhamTheoTenDanhMuc(ArrayList<Product> listProduct) {
-
+        
     }
-
+    
     public void hienThiThongTinChiTietSanPhamTheoTen(ArrayList<Product> listProduct) {
         String idSearchName;
         input.nextLine();
@@ -78,7 +79,7 @@ public class MenuQuanLySanPham extends Product {
         }
         System.out.println("");
     }
-
+    
     public void menuSapXepSanPham(ArrayList<Product> listProduct) {
         int menu;
         do {
@@ -101,12 +102,12 @@ public class MenuQuanLySanPham extends Product {
                     System.out.println("Chi duoc chon tu 1-3. Moi chon lai!");
                     break;
             }
-
+            
         } while (menu != 3);
     }
-
+    
     public void sapXepSanPhamTheoGiaSuatTang(ArrayList<Product> listProduct) {
-
+        
         for (int i = 0; i < listProduct.size(); i++) {
             for (int j = i + 1; j < listProduct.size(); j++) {
                 if (listProduct.get(i).getExportPrice() > listProduct.get(j).getExportPrice()) {
@@ -120,9 +121,9 @@ public class MenuQuanLySanPham extends Product {
         for (int i = 0; i < listProduct.size(); i++) {
             System.out.println("\t " + listProduct.get(i).getProductName() + " : " + listProduct.get(i).getExportPrice());
         }
-
+        
     }
-
+    
     public void sapXepSanPhamTheoLoiNhuanGiam(ArrayList<Product> listProduct) {
         for (int i = 0; i < listProduct.size(); i++) {
             Product pd = (Product) listProduct.get(i);
@@ -142,7 +143,7 @@ public class MenuQuanLySanPham extends Product {
             System.out.println("\t " + listProduct.get(i).getProductName() + " : " + listProduct.get(i).profit);
         }
     }
-
+    
     public void capNhatThongTinSanPhamTheoMa(ArrayList<Product> listProduct) {
         input.nextLine();
         String idSearchNew;
@@ -240,7 +241,7 @@ public class MenuQuanLySanPham extends Product {
                                         System.out.println("Chi duoc chon 1-2, moi chon lai!");
                                         break;
                                 }
-
+                                
                             } while (chon != 1 && chon != 2);
                             pd.setProductStatus(productStatus);
                             System.out.println("\tTrang thai moi san pham: " + (listProduct.get(i).productStatus ? "Hoat dong" : "Khong hoat dong"));
@@ -249,15 +250,15 @@ public class MenuQuanLySanPham extends Product {
                             System.out.println("Chi duoc chon 1-6, moi chon lai!");
                             break;
                     }
-
+                    
                 } while (chon != 1 && chon != 2 && chon != 3 && chon != 4 && chon != 5 && chon != 6);
             }
         }
         System.out.println("");
     }
-
+    
     public void capNhatTrangThaiSanPhamTheoMa(ArrayList<Product> listProduct) {
-
+        
         input.nextLine();
         String idSearchId;
         do {
@@ -289,7 +290,7 @@ public class MenuQuanLySanPham extends Product {
                             System.out.println("Chi duoc chon 1-2, moi chon lai!");
                             break;
                     }
-
+                    
                 } while (chon != 1 && chon != 2);
                 pd.setProductStatus(productStatus);
                 System.out.println("\tTrang thai moi san pham: " + (listProduct.get(i).productStatus ? "Hoat dong" : "Khong hoat dong"));

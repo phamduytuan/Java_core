@@ -5,6 +5,7 @@
  */
 package baitaplon;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ import java.util.Scanner;
  *
  * @author DELL
  */
-public class Categories implements ICategories {
+public class Categories implements ICategories, Serializable {
 
     int catalogId;
     String catalogName;

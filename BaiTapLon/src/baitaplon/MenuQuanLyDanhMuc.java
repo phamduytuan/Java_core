@@ -6,6 +6,7 @@
 package baitaplon;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -44,6 +45,7 @@ public class MenuQuanLyDanhMuc extends Categories {
         Categories cg = new Categories();
         cg.inputData();
         listCategories.add(cg);
+        //ShopManagement.writeCategories(listCategories);
     }
 
     public void danhSachCayDanhMuc(ArrayList<Categories> listCategories) {
@@ -53,8 +55,11 @@ public class MenuQuanLyDanhMuc extends Categories {
     public void thongTinChiTietDanhMuc(ArrayList<Categories> listCategories) {
         input.nextLine();
         String nameSearch;
-        System.out.print("Nhap vao ten danh muc can xem thong tin: ");
-        nameSearch = input.nextLine();
+        do {
+            System.out.println("Ten danh muc gom tu 6 den 30 ky tu.");
+            System.out.print("\tNhap ten danh muc can kien tra thong tin: ");
+            nameSearch = input.nextLine();
+        } while (nameSearch.length() < 6 || nameSearch.length() > 30);
         for (int i = 0; i < listCategories.size(); i++) {
             Categories cg = (Categories) listCategories.get(i);
             if (nameSearch.equals(listCategories.get(i).catalogName)) {
@@ -64,9 +69,18 @@ public class MenuQuanLyDanhMuc extends Categories {
     }
 
     public void xoaDanhMucTheoMa(ArrayList<Categories> listCategories) {
-        int maXoa;
-        System.out.print("Nhap vao ma danh muc can xoa:");
-        maXoa = input.nextInt();
+        int maXoa = -1;
+        do {
+            try {
+                System.out.println("Ma danh muc la so nguyen lon hon 0.");
+                System.out.print("\tNhap ma danh muc can xoa: ");
+                maXoa = input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Kiem tra lai so vua nhap!");
+            } catch (Exception e) {
+                System.out.println("Da co loi xay ra!");
+            }
+        } while (maXoa <= 0);
         // kiem tra neu ko co ma vua nhap thi bat nhap lai 
         for (int i = 0; i < listCategories.size(); i++) {
             Categories cg = (Categories) listCategories.get(i);
@@ -79,8 +93,11 @@ public class MenuQuanLyDanhMuc extends Categories {
     public void timKiemDanhMucTheoTen(ArrayList<Categories> listCategories) {
         input.nextLine();
         String nameSearch;
-        System.out.print("Nhap vao ten danh muc can xem thong tin: ");
-        nameSearch = input.nextLine();
+        do {
+            System.out.println("Ten danh muc gom tu 6 den 30 ky tu.");
+            System.out.print("\tNhap ten danh muc can tim kiem thong tin: ");
+            nameSearch = input.nextLine();
+        } while (nameSearch.length() < 6 || nameSearch.length() > 30);
         // kiem tra neu ko co ma vua nhap thi bat nhap lai 
         for (int i = 0; i < listCategories.size(); i++) {
             Categories cg = (Categories) listCategories.get(i);
