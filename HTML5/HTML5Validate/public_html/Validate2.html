@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function randomList() {
+                var arr = new Array();
+                for (var i = 0; i < 5; i++) {
+                    var item = Math.floor(Math.random() * 10);
+                    arr.push(item);
+                }
+                document.getElementById("txtRandom").value = arr.join("");
+            }
+            function demoValidate() {
+                //b1: lay tat ca du lieu ve
+                var ten = document.getElementById("txtTen").value;
+                var tuoi = document.getElementById("txtTuoi").value;
+                var email = document.getElementById("txtEmail").value;
+                var sdt = document.getElementById("txtSdt").value;
+                var rdbGt = document.getElementsByName("rdbGt");
+                var ckbSt = document.getElementsByName("ckbSt");
+                var que = document.getElementById("ddlQue").value;
+                var user = document.getElementById("txtUser").value;
+                var pass = document.getElementById("txtPass").value;
+                var rePass = document.getElementById("txtRepass").value;
+                var randomNumber = document.getElementById("txtRandom").value;
+                var captchar = document.getElementById("txtCaptchar").value;
+                //lay tat ca cac the hien thi loi ve
+                var errTen = document.getElementById("errTen");
+                var errTuoi = document.getElementById("errTuoi");
+                var errEmail = document.getElementById("errEmail");
+                var errSdt = document.getElementById("errSdt");
+                var errGt = document.getElementById("errGt");
+                var errSt = document.getElementById("errSt");
+                var errQue = document.getElementById("errQue");
+                var errUser = document.getElementById("errUser");
+                var errPass = document.getElementById("errPass");
+                var errRePass = document.getElementById("errRePass");
+                var errCaptchar = document.getElementById("errCaptchar");
+                //validate
+                var checkValidate = true;
+                //validate ten
+                if (ten.length == 0) {
+                    errTen.innerHTML = "*Ten khong duoc de trong!";
+                    checkValidate = false;
+                } else if (ten.length < 6) {
+                    errTen.innerHTML = "*Ten it nhat 6 ky tu!";
+                    checkValidate = false;
+                } else {
+                    var regxTen = /^[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+$/;
+                    var testTen = regxTen.test(ten);
+                    if (!testTen) {
+                        errTen.innerHTML = "*Ten khong dung dinh dang!";
+                        checkValidate = false;
+                    } else {
+                        errTen.innerHTML = "";
+                    }
+                }
+                //validate tuoi
+                if (tuoi.length == 0) {
+                    errTuoi.innerHTML = "*Tuoi khong duoc de trong!";
+                    checkValidate = false;
+                } else {
+                    var regxTuoi = /^[1-9][0-9]*$/;
+                    var testTuoi = regxTuoi.test(tuoi);
+                    if (!testTuoi) {
+                        errTuoi.innerHTML = "*Tuoi khong dung dinh dang!";
+                        checkValidate = false;
+                    } else {
+                        errTuoi.innerHTML = "";
+                    }
+                }
+                //validate email
+                if (email.length == 0) {
+                    errEmail.innerHTML = "*Email khong duoc de trong!";
+                    checkValidate = false;
+                } else {
+                    var regxEmail = /^[a-zA-Z0-9_\-.]+@ [a-zA-Z0-9]+\.?[a-zA-Z]+\.[a-zA-Z]{2,3}$/;
+                    var testEmail = regxEmail.test(email);
+                    if (!testEmail) {
+                        checkValidate = false;
+                        errEmail.innerHTML = "*Email khong dung dinh dang!";
+                    } else {
+                        errEmail.innerHTML = "";
+                    }
+                }
+                //sdt
+                if (sdt.length == 0) {
+                    errSdt.innerHTML = "*Phai nhap so dien thoai!";
+                } else {
+                    var regSdt = /^0[0-9]+|\+84[0-9]+$/;
+                    var testSdt = regSdt.test(sdt);
+                    if (!testSdt) {
+                        errSdt.innerHTML = "*SDT khong dung dinh dang!";
+                    } else {
+                        errSdt.innerHTML = "";
+                    }
+                }
+                //gt
+                var checkGt = false;
+                for (var i = 0; i < rdbGt.length; i++) {
+                    if (rdbGt[i].checked) {
+                        checkGt = true;
+                        break;
+                    }
+                }
+                if (!checkGt) {
+                    errGt.innerHTML = "*Ban phai chon gioi tinh!";
+                    checkValidate = false;
+                } else {
+                    errGt.innerHTML = "";
+                }
+                //St
+                var checkSt = false;
+                for (var i = 0; i < ckbSt.length; i++) {
+                    if (ckbSt[i].checked) {
+                        checkSt = true;
+                        break;
+                    }
+                }
+                if (!checkSt) {
+                    errSt.innerHTML = "*Ban phai chon it nhat 1 so thich!";
+                    checkValidate = false;
+                } else {
+                    errSt.innerHTML = "";
+                }
+                //que quan:
+                if (que == "-9999") {
+                    errQue.innerHTML = "*Ban phai chon que quan!";
+                    checkValidate = false;
+                } else {
+                    errQue.innerHTML = "";
+                }
+                //user
+                if (user.length == 0 || user.length < 6) {
+                    errUser.innerHTML = "*Ban phai nhap user it nhat 6 ky tu!"
+                    checkValidate = false;
+                } else {
+                    errUser.innerHTML = ""
+                }
+                //pass
+                if (pass.length == 0 || pass.length < 6) {
+                    errPass.innerHTML = "*Ban phai nhap pass it nhat 6 ky tu!"
+                    checkValidate = false;
+                } else {
+                    errPass.innerHTML = ""
+                }
+                //Repass
+                if (rePass.length == 0) {
+                    errRepass.innerHTML = "*Ban phai nhap lai Pass!";
+                    checkValidate = false;
+                } else if (rePass != pass) {
+                    errRepass.innerHTML = "*Mat khau nhap lai khong khop!";
+                    checkValidate = false;
+                } else {
+                    errRepass.innerHTML = "";
+                }
+                //captchar
+                if (captchar != randomNumber) {
+                    errCaptchar.innerHTML = "*Captchar nhap khong dung!";
+                    checkValidate = false;
+                } else {
+                    errCaptchar.innerHTML = "";
+                }
+                //b4:Xu ly khi form da validate
+                if (checkValidate) {
+                    document.getElementById("frm").submit();
+                }
+            }
+        </script>
+    </head>
+    <body onload="randomList()">
+        <form action="https://dantri.com.vn/" id="frm">
+            <table>
+                <tr>
+                    <td>Ten:</td>
+                    <td><input type="text" id="txtTen"></td>
+                    <td><span id="errTen"></span></td>
+                </tr>
+                <tr>
+                    <td>Tuoi:</td>
+                    <td><input type="text" id="txtTuoi"></td>
+                    <td><span id="errTuoi"></span></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" id="txtEmail"></td>
+                    <td><span id="errEmail"></span></td>
+                </tr>
+                <tr>
+                    <td>SDT:</td>
+                    <td><input type="text" id="txtSdt"></td>
+                    <td><span id="errSdt"></span></td>
+                </tr>
+                <tr>
+                    <td>Gioi Tinh:</td>
+                    <td><input type="radio" name="rdbGt">Nam<input type="radio" name="rdbGt">Nu</td>
+                    <td><span id="errGt"></span></td>
+                </tr>
+                <tr>
+                    <td>So Thich:</td>
+                    <td><input type="checkbox" name="ckbSt">Bong Da<input type="checkbox" name="ckbSt">Bong Chuyen<input type="checkbox" name="ckbSt">Bong Ban</td>
+                    <td><span id="errSt"></span></td>
+                </tr>
+                <tr>
+                    <td>Que Quan:</td>
+                    <td>
+                        <select id="ddlQue">
+                            <option value="-9999">--Chon--</option>
+                            <option value="Ha Noi">Ha Noi</option>
+                            <option value="Ha Nam">Ha Nam</option>
+                            <option value="Nam Dinh">Nam Dinh</option>
+                            <option value="Hai Phong">Hai phong</option>
+                        </select>
+                    </td>
+                    <td><span id="errQue"></span></td>
+                </tr>
+                <tr>
+                    <td>User:</td>
+                    <td><input type="text" id="txtUser"></td>
+                    <td><span id="errUser"></span></td>
+                </tr>
+                <tr>
+                    <td>Pass:</td>
+                    <td><input type="password" id="txtPass"></td>
+                    <td><span id="errPass"></span></td>
+                </tr>
+                <tr>
+                    <td>Repass:</td>
+                    <td><input type="password" id="txtRepass"></td>
+                    <td><span id="errRepass"></span></td>
+                </tr><tr>
+                    <td>Captchar</td>
+                    <td><input type="text" id="txtCaptchar"><input type="text" id="txtRandom" disabled=""></td>
+                    <td><span id="errCaptchar"></span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" value="Dang Ky" onclick="demoValidate()"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

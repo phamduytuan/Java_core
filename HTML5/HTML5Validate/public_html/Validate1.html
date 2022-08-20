@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function demoValidate() {
+                var ten = document.getElementById("txtTen").value;
+                var tuoi = document.getElementById("txtTuoi").value;
+                var email = document.getElementById("txtEmail").value;
+                var errTen = document.getElementById("errTen");
+                var errTuoi = document.getElementById("errTuoi");
+                var errEmail = document.getElementById("errEmail");
+                //validate ten
+                if (ten.length == 0) {
+                    errTen.innerHTML = "*Ten khong duoc de trong!";
+                } else if (ten.length < 6) {
+                    errTen.innerHTML = "*Ten it nhat 6 ky tu!";
+                } else {
+                    var regxTen = /^[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+$/;
+                    var testTen = regxTen.test(ten);
+                    if (!testTen) {
+                        errTen.innerHTML = "*Ten khong dung dinh dang!";
+                    } else {
+                        errTen.innerHTML = "";
+                    }
+                }
+                //validate tuoi
+                if (tuoi.length == 0) {
+                    errTuoi.innerHTML = "*Tuoi khong duoc de trong!";
+                } else {
+                    var regxTuoi = /^[1-9][0-9]*$/;
+                    var testTuoi = regxTuoi.test(tuoi);
+                    if (!testTuoi) {
+                        errTuoi.innerHTML = "*Tuoi khong dung dinh dang!";
+                    } else {
+                        errTuoi.innerHTML = "";
+                    }
+                }
+                //validate email
+                if (email.length == 0) {
+                    errEmail.innerHTML = "*Email khong duoc de trong!";
+                } else {
+                    var regxEmail = /^[a-zA-Z0-9_\-.]+@ [a-zA-Z0-9]+\.?[a-zA-Z]+\.[a-zA-Z]{2,3}$/;
+                    var testEmail = regxEmail.test(email);
+                    if (!testEmail) {
+                        errEmail.innerHTML = "*Email khong dung dinh dang!";
+                    } else {
+                        errEmail.innerHTML = "";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Ten:<input type="text" id="txtTen"><span id="errTen"></span><br>
+        Tuoi:<input type="text" id="txtTuoi"><span id="errTuoi"></span><br>
+        Email:<input type="text" id="txtEmail"><span id="errEmail"></span><br>
+        <input type="button" value="Test" onclick="demoValidate()">
+    </body>
+</html>
