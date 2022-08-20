@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính tiền </title>
+    <script>
+        function tinhTien() {
+            var bd = parseFloat(document.getElementById("txtBd").value);
+            var kt = parseFloat(document.getElementById("txtKt").value);
+            if (bd >= kt) {
+                alert("Gio ket thuc phai lon hon gio bat dau!");
+            } else if (!(bd >= 10 && kt <= 24)) {
+
+                alert("Gio bat dau phai >=10 vaf gio Kt phai <=24");
+            } else {
+
+                var tongTien = 0;
+                if (kt <= 17) {
+                    tongTien = (kt - bd) * 20000;
+                } else if (bd >= 17) {
+                    tongTien = (kt - bd) * 45000;
+                } else {
+
+                    tongTien = (17 - bd) * 20000 + (kt - 17) * 45000;
+                }
+                document.getElementById("txtTongTien").value = tongTien;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+    Gio bat dau : <input type="text" id="txtBd"><br>
+    Gio ket thuc:<input type="text" id="txtKt"><br>
+    Tien thanh toan :<input type="text" id="txtTongTien" disabled=""><br>
+    <input type="button" value="Tinh Tien" onclick="tinhTien()">
+
+</body>
+
+</html>
