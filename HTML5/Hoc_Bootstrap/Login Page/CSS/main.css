@@ -1,0 +1,42 @@
+.section-login {
+    display: flex;
+    min-height: 700px;
+    background: #FEC09B;
+}
+.form-background {
+    background: #E9AB9C;
+    margin-top: 120px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+.form-background h3{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form-group{
+    display: flex;
+    margin: 0 16px;
+}
+.form-item{
+    margin-bottom: 30px;
+}
+.reset-password{
+    text-align: right;
+}
+.btn-login{
+    padding: 12px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #F0BCD4;
+    color: white;
+    border: none;
+    outline: none;
+    display: table;
+    cursor: pointer;
+    margin: 15px auto 31px;
+}
+.user-register{
+  text-align: center;  
+}

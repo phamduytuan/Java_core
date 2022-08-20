@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/bootstrap.css">
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/jquery-ui.css">
+
+    <title>Smart Register Page</title>
+
+</head>
+
+<body>
+    <section class="section-register">
+
+        <div class="col-xs-2 col-sm-3 col-md-3 col-lg-4"></div>
+
+        <div class="col-xs-8 col-sm-6 col-md-6 col-lg-4 form-background">
+            <h3>REGISTER NOW</h3>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <!-- enctype="multipart/form-data"- thuộc tính để có thể upload được kênh -->
+                    <form name="registerForm" method="POST" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <input type="text" name="username" class="form-control" placeholder="Username">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <input type="password" name="repassword" class="form-control"
+                                    placeholder="Retype password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <input type="text" name="fullname" class="form-control" placeholder="Full name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <p class="birthday-text"> Birthday: </p>
+                                <input type="date" name="birthday" class="mycalendar form-control"
+                                    placeholder="Birthday">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <div class="form-control"> Avatar </div>
+                                <input type="file" name="avatar" class="avatar-upload" accept="image/*">
+                                <!-- Show cảnh báo khi gặp lỗi -->
+                                <p class="text-danger"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <!-- Show message khi login thất bại -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-item">
+                                <input type="submit" name="submit" class="btn-register" value="REGISTER">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-2 col-sm-3 col-md-3 col-lg-4"></div>
+
+    </section>
+
+
+    <script src="./JS/bootstrap.js"></script>
+    <script src="./JS/jQuery.js"></script>
+    <script src="./JS/jquery-ui.js"></script>
+
+</body>
+
+</html>
