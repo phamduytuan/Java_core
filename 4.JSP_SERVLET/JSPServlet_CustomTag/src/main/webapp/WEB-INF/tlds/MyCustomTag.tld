@@ -1,0 +1,53 @@
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<tlib-version>2.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>My CustomTag</short-name>
+	<uri>/WEB-INF/tlds/MyCusTomTag.tld</uri>
+	<description>
+		Custom tag using in web application
+	</description>
+	
+	<tag>
+		<name>SimpleTag</name>
+		<tag-class>tag.SimpleCustomTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	
+	<tag>
+		<name>TagSimpleWithAttribute</name>
+		<tag-class>tag.SimpleTagWithAtrributes</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>name</name>
+			<type>String</type>
+			<required>true</required>
+			<rtextrvalue>true</rtextrvalue>
+		</attribute>
+		<attribute>
+			<name>age</name>
+			<type>java.lang.Integer</type>
+			<required>true</required>
+			<rtextrvalue>true</rtextrvalue>
+		</attribute>
+		<attribute>
+			<name>from</name>
+			<type>String</type>
+			<required>true</required>
+			<rtextrvalue>true</rtextrvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>theLap</name>
+		<tag-class>tag.TheLap</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>n</name>
+			<type>java.lang.Integer</type>
+			<required>true</required>
+			<rtextrvalue>true</rtextrvalue>
+		</attribute>
+	</tag>
+</taglib>
